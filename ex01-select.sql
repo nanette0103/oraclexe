@@ -15,3 +15,19 @@ FROM departments;
 -- 특정 열 선택(프로젝션)
 SELECT department_id, location_id
 FROM departments;
+
+/*
+산술식
+    산술연산자를 사용하여 숫자/날짜 데이터 표현식 작성
+    
+    +더하기
+    -빼기
+    *곱하기
+    /나누기
+    
+    */
+    
+--산술 연산자 사용
+SELECT LAST_NAME, SALARY, SALARY - 300
+FROM employees;
+--select문에 연산: 실제 값을 바꾸진 않음
