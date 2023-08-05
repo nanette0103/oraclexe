@@ -37,3 +37,11 @@ WHERE department_id = 50;
 SELECT COUNT(NVL(commission_pct, 0)) AS in_null_commission_count
 FROM employees
 WHERE department_id = 50;
+
+SELECT commission_pct
+FROM employees
+WHERE department_id = 80;
+
+SELECT COUNT(commission_pct) AS non_null_commission_count
+FROM employees
+WHERE department_id = 80;
