@@ -172,4 +172,38 @@ WHERE department_id IN(50,80);
 --NULLIF() 함수
 --두 표현식을 비교하고 같으면 null을 반환하고 다르면 expr1을 반환합니다.
 --그러나 expr1에 대해 리터럴 Null을 지정할 수 없습니다.
+SELECT first_name, LENGTH(first_name) AS expr1,
+        last_name, LENGTH(last_name) AS expr2,
+        NULLIF(LENGTH(first_name), LENGTH(last_name)) As result
+FROM employees;
 
+
+--COALESCE()함수
+--리스트에서 null이 아닌 첫 번째 표현식을 반환합니다.
+SELECT last_name, employee_id,
+        COALESCE(TO_CHAR(commission_pct), TO_CHAR(manager_id),'No commission and no manager')
+FROM employees;
+
+-- 조건부 표현식
+/*
+CASE식
+    IF-THEN-ELSE문 작업을 수행하여 조건부 조회를 편리하게 수행하도록 합니다.
+*/
+
+SELECT last_name, job_id, salary,
+        case job_id
+            WHEN 'IT_PROG' THEN 1.10*salary
+            WHEN 'ST_CLERK' THEN 1.15*salary
+            WHEN 'SA_REP' THEN 1.20*salary
+            ELSE salary
+        END AS REBISED_SALARY
+FROM employees;
+
+--DECODE()함수
+--CASE식과 유사한 작업을 수행합니다.
+SELECT last_name, job_id, salary,
+        DECODE(job_id, 'IT_PROG', 1.10*salary,
+                        'ST_CLERK', 1.15*salary,
+                        'SA_REP', 1.20*salary,
+                        salary) AS RREBISED_SALARY
+FROM employees;
