@@ -44,8 +44,10 @@ VALUES (300, 'Finance', null, null); --null키워드 지정
 INSERT subquery
 */
 
+DROP TABLE sales_reps;
+
 Create TABLE sales_reps
-AS (SELECT employee_id, last_name, salary, commission_pct
+AS (SELECT employee_id id, last_name name, salary, commission_pct
     FROM employees
     WHERE 1 = 2
     )
