@@ -178,10 +178,10 @@ RETURN datatype -- 반환되는 값의 유형
 /
 
 */
-CREATE OR REPLACE FUNCTION fn_get_dept_name (p_dept_no_NUMBER)
+CREATE OR REPLACE FUNCTION fn_get_dept_name(p_dept_no NUMBER)  
 RETURN VARCHAR2 -- 반환되는 값의 유형
     IS -- 선언부
-        V_TEST_NAME VARCHAR2
+        V_TEST_NAME VARCHAR2(50);
     BEGIN
         SELECT department_name
         INTO V_TEST_NAME
@@ -191,4 +191,4 @@ RETURN VARCHAR2 -- 반환되는 값의 유형
     END;
 /
 
-SELECT fn_get_dept_name(30) FROM dual
+SELECT fn_get_dept_name(30) FROM dual;
